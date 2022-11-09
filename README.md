@@ -1,11 +1,14 @@
-# 기본 프로젝트 베이스
+# 항해99 실전 프로젝트 <거기어때>
 <br/>
 
-## 프로젝트 기본 뼈대를 잡고 가기위해 만듬
+### 프로젝트 주제 : 각종 행사 공유와 함께할 사람 모집
 
 <br/>
 
-## 설치한 라이브러리들
+<details>
+<summary> 설치한 lib들 </summary>
+<div markdown="1">
+
 - styled-components
 
         yarn add styled-components
@@ -34,13 +37,11 @@
 - browser-image-compression
 
         npm i browser-image-compression
-<br/>
+- react-bootstrap
 
-## 폴더/파일 구조
+        yarn add react-bootstrap bootstrap
+- react-icons
 
-![image](https://user-images.githubusercontent.com/90454621/199665556-9d1e563a-9fdc-4d79-822e-d9f1f0ddc858.png)
-<br/>
-
-## 실행 화면
-
-![image](https://user-images.githubusercontent.com/90454621/199663564-c59165aa-2645-471c-91c1-c9a29186d909.png)
+        npm install react-icons --save
+</div>
+</details>

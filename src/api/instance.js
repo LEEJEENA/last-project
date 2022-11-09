@@ -3,7 +3,7 @@ import { getCookie } from "../cookie/cookie";
 
 
 //헤더 없는 인스턴스
-export const nhinstance = axios.create({
+export const nhInstance = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
     headers: {},
 });
@@ -16,3 +16,6 @@ export const hInstance = axios.create({
     },
     withCredentials: true,
 });
+
+
+
