@@ -4,21 +4,36 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import store from "./redux/config/configStore";
-import { Provider } from "react-redux";
-import { CookiesProvider } from 'react-cookie';
 import 'bootstrap/dist/css/bootstrap.css';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+import {
+  RecoilRoot,
+} from 'recoil';
+
+// PWA 추가
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+serviceWorkerRegistration.register();
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      suspense: true,
+    },
+  },
+});
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <CookiesProvider>
-    <Provider store={store}>
+  <RecoilRoot>
+    <QueryClientProvider client={queryClient}>
       <App />
-    </Provider>
-  </CookiesProvider>
+    </QueryClientProvider>
+  </RecoilRoot>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

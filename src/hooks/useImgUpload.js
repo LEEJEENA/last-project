@@ -8,6 +8,7 @@ import imageCompression from "browser-image-compression";
 //imgMaxWidthHeight 압축 이미지 최대 width,height 기본값1920px
 const useImgUpload = (limitCount = 0, isComp = false, imgMaxSize = 1, imgMaxWidthHeight = 1920) => {
     //이미지 파일 & 프리뷰URL useState
+    const [originFiles, setOriginFiles] = useState([]);
     const [imgFiles, setImgFiles] = useState([]);
     const [imgUrls, setImgUrls] = useState([]);
 
@@ -20,6 +21,7 @@ const useImgUpload = (limitCount = 0, isComp = false, imgMaxSize = 1, imgMaxWidt
         //state 초기화
         setImgFiles([]);
         setImgUrls([]);
+        setOriginFiles([]);
 
         //파일 갯수 제한
         if (limitCount > 0) {
@@ -37,6 +39,9 @@ const useImgUpload = (limitCount = 0, isComp = false, imgMaxSize = 1, imgMaxWidt
                 alert('이미지 파일만 업로드가 가능합니다.');
                 return;
             }
+
+            //원본 이미지 파일 담기
+            setOriginFiles(imgs => [...imgs, file]);
 
             //압축 옵션
             const options = {
@@ -78,7 +83,7 @@ const useImgUpload = (limitCount = 0, isComp = false, imgMaxSize = 1, imgMaxWidt
         });
 
     }
-    return [imgFiles, imgUrls, handler];
+    return [imgFiles, imgUrls, handler, setImgFiles, setImgUrls, originFiles];
 };
 
 export default useImgUpload;
